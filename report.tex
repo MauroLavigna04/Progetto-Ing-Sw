@@ -1,7 +1,6 @@
 \documentclass{report}
 
 % Language setting
-% Replace `english' with e.g. `spanish' to change the document language
 \usepackage[italian]{babel}
 
 % Set page size and margins
@@ -40,20 +39,15 @@
     \vspace{2.5cm}
     
     % --- TITOLO DELLA TESI ---
-    % Uso \Huge per renderlo grande e \textbf per il grassetto
-    {\Huge \textbf{Progettazione di un'applicazione finalizzata alla programmazione di assunzione regolare di farmaci}} \\
-    
+    {\Huge \textbf{Progettazione di una mappa, basata su Community, per supporto a Persone con Mobilita Ridotta}} \\
+    % "Persona a Mobilità Ridotta" (P.M.R.) È il termine ufficiale utilizzato a livello internazionale (in inglese PRM - Persons with Reduced Mobility) nei trasporti, negli aeroporti e nella progettazione urbana.
+    % Perché usarlo: Include non solo chi è in sedia a rotelle, ma anche chi ha difficoltà temporanee, usa stampelle, deambulatori o è anziano con passo lento. È perfetto per un'app di navigazione.
+
     \vspace{4cm}
     
     % --- RELATORE E LAUREANDO ---
     % Uso due minipage per allinearli a sinistra e destra
     \noindent
-    \begin{minipage}[t]{0.45\textwidth}
-        %\begin{flushleft}
-        %    \large Relatore\\
-        %    \textbf{Prof. Ing. Marina Mongiello}
-        %\end{flushleft}
-    \end{minipage}
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
         \begin{flushright}
@@ -76,77 +70,9 @@
 %\maketitle
 
 \begin{abstract}
-
-realta meridionali \footnote{Dati ISTAT}
+Negli ultimi anni, la salute degli anziani è in miglioramento, come riporta il dato ISTAT \footnote{Dati ISTAT}, ma la disabilità e l’invecchiamento della popolazione hanno reso sempre più importante sviluppare strumenti digitali che favoriscano la mobilità, l'autonomia e l’inclusione sociale. Sebbene esistano numerose applicazioni per la navigazione, esse non tengono sempre conto delle esigenze specifiche degli utenti anziani, con mobilità ridotta o con disabilità.
+Il progetto proposto consiste nella realizzazione di un'applicazione accessibile e intuitiva che integri un sistema di geolocalizzazione, pensato per aiutare gli anziani e le persone con disabilità a individuare luoghi facilmente raggiungibili, percorsi accessibili e servizi specifici sul territorio.
+Le attuali applicazioni di navigazione presentano aspetti generici in cui le persone a mobilità ridotta presentano difficoltà nell’utilizzo, in quanto c’è uno scarso supporto alle interazioni e una fruizione poco accessibile.
 \end{abstract}
-
-\end{document}
-
-\documentclass[a4paper,12pt]{article}
-
-% Pacchetti necessari
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{mathptmx} % Per un font simile a Times New Roman (Serif)
-\usepackage[margin=2.5cm, top=3cm, bottom=3cm]{geometry}
-\usepackage{graphicx} % Per inserire il logo
-
-\begin{document}
-
-\begin{titlepage}
-    \centering
-    \includegraphics[width=0.25\textwidth]{logo_poliba} 
-    
-    \vspace{1cm}
-    
-    % --- INTESTAZIONE ISTITUZIONE ---
-    {\large \textbf{POLITECNICO DI BARI}} \\
-    \vspace{0.5cm}
-    {\small DIPARTIMENTO DI INGEGNERIA ELETTRICA E DELL'INFORMAZIONE} \\
-    {\small Corso di Laurea in Ingegneria Informatica e dell'Automazione} \\
-    
-    \vspace{0.4cm}
-    
-    % Linea orizzontale superiore
-    \hrule 
-    
-    \vspace{1.5cm}
-    
-    % --- TIPO DI TESI ---
-    {\large Tesi di Laurea in Ingegneria del Software e Fondamenti Web} \\
-    
-    \vspace{2.5cm}
-    
-    % --- TITOLO DELLA TESI ---
-    % Uso \Huge per renderlo grande e \textbf per il grassetto
-    {\Huge \textbf{Implementazione di Tecniche di \\ Machine Learning e Computer Vision \\ a supporto del Settore Oleario}} \\
-    
-    \vspace{4cm}
-    
-    % --- RELATORE E LAUREANDO ---
-    % Uso due minipage per allinearli a sinistra e destra
-    \noindent
-    \begin{minipage}[t]{0.45\textwidth}
-        \begin{flushleft}
-            \large Relatore\\
-            \textbf{Prof. Ing. Marina Mongiello}
-        \end{flushleft}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.45\textwidth}
-        \begin{flushright}
-            \large Laureando\\
-            \textbf{Bartolo Morgigno}
-        \end{flushright}
-    \end{minipage}
-    
-    \vfill % Spinge tutto il resto verso il fondo pagina
-    
-    % --- PIÈ DI PAGINA ---
-    \hrule
-    \vspace{0.5cm}
-    Anno Accademico 2023 - 2024
-    
-\end{titlepage}
 
 \end{document}
