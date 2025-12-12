@@ -1,2 +1,4 @@
 report.*
 !report.tex
+# Dati generati dal database Docker (locali)
+progettoIng_Sw/data-volumi/
