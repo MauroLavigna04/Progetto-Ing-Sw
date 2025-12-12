@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # 1. SERVIZIO DATABASE (MySQL o MariaDB)
+  db:
+    image: mysql:8.0 # Immagine ufficiale del database. Puoi usare 'mariadb:latest' se preferisci.
+    container_name: progetto_db_mysql
+    restart: always # Riavvia il container in caso di errore o riavvio del Docker Engine
+    environment:
+      # --- CREDENZIALI CRUCIALI ---
+      # Password di root (amministratore del DB)
+      MYSQL_ROOT_PASSWORD: MySecretRootPassword!
+      # Nome del database che verrà creato la prima volta
+      MYSQL_DATABASE: progettoingsoft
+      
+      # ---------------------------
+    ports:
+      # Mappa la porta interna 3306 (DB) alla porta esterna 3306 dell'host
+      - "3306:3306"
+    volumes:
+      # VOLUME DATI:
+      - ./data-volumi/mysql:/var/lib/mysql
+      # VOLUME INIZIALIZZAZIONE:
+      - ./init-db:/docker-entrypoint-initdb.d
+
+  # 2. SERVIZIO PHPMYADMIN (Interfaccia Grafica)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: progetto_db_pma
+    restart: always
+    # Dipendenza: assicura che il container 'db' sia avviato prima di phpMyAdmin
+    depends_on:
+      - db 
+    environment:
+      # Host: phpMyAdmin si connette al container database usando il nome del servizio ('db')
+      PMA_HOST: db 
+      # Porta del database interno al container
+      PMA_PORT: 3306
+      # Usa le credenziali di root per accedere (per comodità in dev)
+      MYSQL_ROOT_PASSWORD: MySecretRootPassword!
+    ports:
+      # Mappa la porta interna 80 (web) alla porta esterna 8080 dell'host (accedi con http://localhost:8080)
+      - "8080:80"
