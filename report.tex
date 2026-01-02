@@ -146,8 +146,8 @@ dover analizzare in qualche modo l'affidabilità di questa tecnologia. Si rileva
 su OpenStreetMap risulta essere compresa in un raggio di 6 metri dalla rispettiva posizione reale.\cite{art_3}. E' rilevante menzionare che la qualità delle informazioni geografiche
 presenti su OpenStreetMap non è la medesima per ogni luogo; il dataset relativo alla Germania risulta essere quello di più alta qualità \cite{art_4}, ciò dipende dal numero di utenti
 che contribuiscono attivamente; per quanto riguarda la situazione in Italia, per ogni milione di persone il numero di utenti che contribuiscono sono compresi tra 1.63 a 3.35.
-In alternativa, esistono tecnologie non open source che garantiscono dati geografici più accurati, come ad esempio GeoPostcodes; in seguito verrà effettuata una stima dei costi
-nel caso in cui il progetto proposto dovesse implementare GeoPostcodes.
+In alternativa, esistono tecnologie non open source che garantiscono dati geografici più accurati, come ad esempio Google Maps Platform; in seguito verrà effettuata una stima dei costi
+nel caso in cui il progetto proposto dovesse implementare Google Maps Platform.
 
 \section{Wheelmap}
 
@@ -168,6 +168,12 @@ Similmente a OpenStreetMap, anche Wheelmap permette agli utenti di contribuire a
 dato luogo. Sempre alla selezione di un luogo, è possibile inserire una valutazione, positiva o negativa, ai servizi igienici del dato luogo; prima di inserire il giudizio viene ricordato all'utente
 i vari parametri che stabiliscono se un servizio igienico è accessibile in sedia a rotelle o meno.
 
+\section{Screen Reader}
+
+Per screen reader si intende un software che permette di convertire il testo, o più generalemente il contenuto, visualizzato su uno schermo in un output audio. Questo risulta essere particolarmente utile per persone affette da impedimenti visivi che non
+hanno la possibilità di leggere in autonomia il contenuto del dispositivo. Tuttavia, questa tecnologia presenta alcune limitazioni; le informazioni che vengono erogate sono all'incirca il 61.48\% 
+meno accurate e si spende il 210.96\% in più di tempo per interagirvi rispetto a utenti che non utilizzano screen reader\cite{art_5}. Molti degli attuali sistemi operativi per dispositivi mobili presentano degli screen reader
+integrati, come ad esempio VoiceOver per dispositivi Apple e TalkBack per dispositivi Android.
 
 
 \chapter{Organizzazione della soluzione proposta}
@@ -197,7 +203,7 @@ soprattutto considerando le differenti esigenze di cui ciascun utente necessiter
 
 Un'aspetto fondamentale è quantificare quanto capitale sia necessario investire affinchè l'applicazione sia funzionante e disponibile. Una precisazione doverosa riguarda i cosiddetti
 acquisti in-app; al momento della stesura del documento corrente, non sono previsti acquisti effettuabili all'interno dell'applicazione. In secondo luogo si è ritenuto, per motivi 
-precedentemente chiarificati, valutare anche l'utilizzo di un dataset geografico più accurato quale GeoPostcodes. L'aspetto cardine a cui faremo riferimento sarà dunque la disponibilità dell'applicazione,
+precedentemente chiarificati, valutare anche l'utilizzo di un dataset geografico più accurato quale Google Maps Platform. L'aspetto cardine a cui faremo riferimento sarà dunque la disponibilità dell'applicazione,
 in particolare quanto sarà necessario investire per mantenere l'applicazione accessibile presso i vari store di applicazione.
 
 \subsection{Gli store di applicazioni}
@@ -222,13 +228,30 @@ sarà resa disponibile.
 \end{figure}
 
 Come si può notare dalla figura precedente, il numero di applicazioni scaricate sia nel Google Play Store che nell'App Store è considerevole.
-Per questo si è ritenuto sufficiente considerare soltante questi due store di applicazioni.
+Per questo si è ritenuto sufficiente considerare soltanto questi due store di applicazioni. In entrambi i casi, per poter pubblicare un'app si necessiterà
+di un account sviluppatore, e ciò comporterà dei costi di cui è necessario effettuare una stima. Relativamente all'Apple App Store, la distribuzione potrà
+avvenire a fronte di un costo annuale di 99 dollari. In maniera differente, il Google Play Store prevede un unico costo di 25 dollari.
+
 
 \subsection{Stima dei costi utilizzando OpenStreetMap}
 
-Come chiarificato in precedenza, l'utilizzo di OpenStreetMap non implica costi aggiuntivi relativi ai dati geografici.
+Come chiarificato in precedenza, l'utilizzo di OpenStreetMap non implica la presenza di costi aggiuntivi relativi ai dati geografici. Per mantenere disponibile
+l'applicazione nell'Apple App Store e nel Google Play Store sarebbero necessari 124 dollari nel primo anno, per poi essere di 99 dollari dal secondo anno a segursi.
 
+\subsection{Stima dei costi utilizzando Google Maps Platform}
 
+Nel caso in cui l'applicazione implementi il dataset geografico più accurato di Google Maps Platform, il costo di mantenimento dell'applicazione risulta essere più elevato.
+Sono previsti tre diversi piani tariffari:
+
+\begin{enumerate}
+    \item \textit{Starter:} 100 dollari al mese.
+    \item \textit{Essentials:} 275 dollari al mese.
+    \item \textit{Pro:} 1200 dollari al mese.
+\end{enumerate}
+
+E' utile menzionare il fatto che Google Maps Platform offre un credito pari a 300 dollari per i nuovi utenti che desiderano utilizzare il servizio;
+questa opzione risulta particolarmente interessante in quanto permetterebbe di verificare e valutare di prima mano se l'utilizzo di Google Maps Platform
+ricopre le esigenze del progetto proposto.
 
 %Inizio bibliografia
 
