@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
+\usepackage{tcolorbox}
 
 \begin{document}
 
@@ -255,6 +256,71 @@ ricopre le esigenze del progetto proposto.
 
 
 \section{Architettura}
+Il progetto è stato sviluppato utilizzando un'architettura \textbf{client-server}, che consente una separazione evidente tra la gestione dell'interfaccia utente e la logica applicativa.
+Il lato Client è rappresentato dall'applicazione mobile sviluppata in Kotlin, attraverso la quale l'utente può effettuare la registrazione e il login.
+I dati inseriti dall'utente, vengono inviati al server, che ne gestisce la memorizzazione all'interno di un database.
+Il server si occupa della gestione del database, il quale è stato integrato all'interno di un ambiente Docker per garantire maggiore portabilità.
+Inoltre il server espone un'API, che rappresenta l'interfaccia di comunicazione tra client e backend e consente, a seguito del corretto completamento del processo di login, l'accesso alle funzionalità dell'applicazione,
+inclusa la visualizzazione della mappa fornnita tramite un service esterno.
+
+\subsection{Stile Architetturale lato client}
+
+Vista la necessità di avere un sistema reattivo e interattivo, l'applicazione dovrebbe adottare un pattern \textbf{MVC}, che isola in tre livelli il sistema.
+Il "Model" di occupa di gestire ed elaborare i dati, il "View" si occupa della modalità di visualizzazione dei dati mentre il "Controller" si occupa dell'interazione dell'utente e manda queste informazioni a vista e modello.
+\newline
+Dato che questo tipo di pattern potrebbe richiedere, specialmente nello sviluppo di applicativi mobili, grossi file che fungono sia da view che da controller,
+si potrebbe optare per un pattern di tipo \textbf{MVVM} (Model-View-ViewModel). In questo tipo di modello abbiamo il ruolo del ViewModel che non conosce la View, semplicemente espone le informazioni, 
+sarà poi il View a leggere ed interpretare queste informazioni.
+\newline
+La differenza sostanziale è che nel MVC il Controller dice direttamente cosa fare alla view, ma nel MVVM il ruolo del controller è sostituito dal ViewModel, che semplicemente rende disponibili le informazioni alla View, che gestirà in autonomia l'interfaccia.
+
+\subsubsection{UI Layer (View)}
+
+Si occupa di renderizzare la grafica, è interamente realizzato con il Framework dichiarativo Jetpack Compose in liguaggio \textbf{kotlin}.
+È presente un'unica attività \texttt{LandingActivity.kt} che gestice le varie schermate, suddivise in schermate di Autenticazione (\texttt{LandingScreen.kt RegisterScreen.kt LoginScreen.kt}) e rendering delle mappe (\texttt{MapView.kt}).
+\newline
+L'oggetto che si occupa di navigare tra le varie schermate è il \texttt{NavController}, esso però non viene passato tra le varie schermate, ma ogni schermata evoca un evento che viene poi gestito dalla schermata principale.
+Ad essere passato tra le varie schermate è il ViewModel, infatti per ogni schermata, nella di una generica cassella di testo abbiamo:
+
+
+\begin{tcolorbox}[colback=gray!20, colframe=gray!0, title=Schermata di autenticazione]
+\begin{verbatim}
+OutlinedTextField(
+            value = viewModel.password,
+            onValueChange = {viewModel.password= it },
+...
+\end{verbatim}
+\end{tcolorbox}
+
+Quindi l'informazione viene salvata nell'oggeto ViewModel e poi la schermata si occupa di recuperare l'informazione
+
+\subsubsection{Presentation Layer (ViewModel)}
+
+Il modulo \texttt{UtenteViewModel.kt} si occupa di salvare le informazioni di autenticazione come email e password che vengono poi viste dal View.
+\newline
+Un altro ruolo importante di questo modulo è determinare in che stato si trova attualmente l'app con quattro stati definiti da una classe \textbf{sealed} (sigillata) ovvero con un numero specifico di figli, nè piu nè meno. Simile all'utilizzo di un enum ma con il vantaggio di poter includere altri attributi, diversi per ogni figlio.
+
+\begin{tcolorbox}[colback=gray!20, colframe=gray!0, title=Schermata di autenticazione]
+\begin{verbatim}
+sealed class UiState {
+    object Idle : UiState()                         // Nessuna operazione
+    object Loading : UiState()                      // Caricamento
+    data class Success(val msg: String) : UiState() // Operazione riuscita
+    data class Error(val msg: String) : UiState()   // Errore
+}
+\end{verbatim}
+\end{tcolorbox}
+
+Il ViewModel ha il compito di eseguire il lavoro di rete in maniera asincrona, senza bloccare l'interfaccia.
+Inolte ha anche la possibilità di verificare i dati immessi prima ancora di fare una chiamata di rete.
+
+%da verificare ed integrare
+
+\subsubsection{Model}
+Sempre nel modulo \texttt{UtenteViewModel.kt} possiamo individuare la classe \texttt{NetworkClient} che viene creata con la parola chiave \texttt{object} proprio perché è di tipo \textbf{Singleton}, ovvero la creazione di una sola istanza di questa classe nell'intera app.
+\newline
+Nella stessa classe è stata usata la parola chiave  \texttt{by lazy} (\textbf{inizzializzazione pigra}) poiché questo comando permette di creare l'istanza di Retrofit non all'avvio dell'app ma quando si verifica la prima chiamata di rete
+
 \section{Teck Stack}
 \subsection{Ambiente di sviluppo}
 L'IDE utilizzato per lo sviluppo è \textbf{Android Studio}, il quale fornisce strumenti per la scrittura del codice, consente il debugging, 
