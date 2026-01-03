@@ -253,6 +253,39 @@ E' utile menzionare il fatto che Google Maps Platform offre un credito pari a 30
 questa opzione risulta particolarmente interessante in quanto permetterebbe di verificare e valutare di prima mano se l'utilizzo di Google Maps Platform
 ricopre le esigenze del progetto proposto.
 
+
+\section{Architettura}
+\section{Teck Stack}
+\subsection{Ambiente di sviluppo}
+L'IDE utilizzato per lo sviluppo è \textbf{Android Studio}, il quale fornisce strumenti per la scrittura del codice, consente il debugging, 
+gestisce le dipendenze tramite Grandle e il testing delle applicazioni. Inoltre  la particolarità di android è l'integrazioni di  emulatori 
+e strumenti di analisi che facilitano lo sviluppo e la manutenzione del software anche dal punto vista grafico e visivo, visualizzando in maniera 
+instantanea l'applicativo progettato.
+\subsection{Linguaggio di Programmazione}
+Il linguaggio utilizzato per la realizzazione della web app è \textbf{Kotlin}.E' un linguaggio moderno e supportato per le applicazioni android.
+E' progetatto per essere interoperabile con Java e supporta la programmazione sia orientata agli oggetti sia a paradigmi funzionali. Inoltre è un 
+liguaggio staticamente tipizzato ed utilizza un vasto insieme di librerie e framework per velocizzare lo sviluppo di applicazioni
+\subsection{Framework e librerie}
+Per lo sviluppo dell'applicazione è stato utilizzato \textbf{Android Jetpack} al fine di garantire un'architettura scalabile e manutenibile.
+L'interfaccia grafica è stata realizzata interamente con \textbf{Jetpack Compose}, il quale permette di descrivere la UI come funzione dello 
+stato corrente,ciò lo fa essere più semplice da utilizzare. Per la gestione dei dati legati alla UI è stato utilizzato \textbf{ViewModel} , 
+il quale garantisce che i dati, nonostante possano subire variazioni, non vengono persi.
+La navigazione tra le diverse schermate dell'applicativo è gestita tramite \textbf{Navigation Compose}, ossia una libreria che permette di 
+controllare il passaggio dei parametri tra le schermate in modo coerente con il pattern di navigazione di Android.Per l'integrazione con il server backend, 
+è stata utilizzata la libreria \textbf{Retrofit}, il quale permette di trasformare le API HTTP in interfaccia Kotlin, automatizzando la gestione delle richieste e delle risposte, 
+inoltre permette la conversione automatica dei dati JSON provenienti dal database in oggetti scritti in lunguaggio Kotlin
+\subsection{API Service}
+\subsection{Tool di sviluppo}
+Per la gestione del controllo versione è stato utilizzato \textbf{Git}, un software utilizzato localmente per gestire le modifiche apportate al progetto. Git supporta operazioni di branching e merging e permette,
+ attraverso il commit, di tracciare ogni modifica del file in modo tale da rendere più efficace e rapida l'individuazione di eventuali errori critici.
+Per la gestione remota della repository del progetto è stato utilizzato \textbf{GitHub}, ossia una piattaforma di hosting che consente di condividere il codice online, facilita il tutto attraverso le operazioni di pull request. 
+Inoltre legge e visualizza  un file chiamato ".gitignore" il quale permette a git di evitare il caricamento di file temporanei generati automaticamente da Android Studio.
+Per la gestione del server è stato utilizzato \textbf{Docker},una tecnologia basata sulla containerizzazione che permette di creare immagini che vengono eseguite in un ambiente isolato così facendo il backend non interferisce con il sistema operativo dell'host.
+Attraverso il file "docker-compose.yml", è stato possibile avviare con un unico comando l'intero stack includendo il database relazionale e il web server per la gestione delle chiamate api.L'uso di Docker inoltre assicura la portabilità e semplifica le operazioni di rollback grazie al versionamento delle immagini.
+All'interno di questa infrastruttura è stato configurato l'ambiente \textbf{XAMPP}, che funge da middleware per la gestione dei dati. Il database relazione si occupa della memorizzazione delle informazioni,
+mentre la comunicazione tra l'applicazione android e il database è garantita dal serevr Apache, il quale riceve le richieste dalla libreria Retrofit. Queste richieste vengono elaborate in linguaggio PHP e convertono i risultati in formato JSON.
+
+
 %Inizio bibliografia
 
 \bibliographystyle{plainnat}
