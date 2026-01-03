@@ -344,6 +344,22 @@ controllare il passaggio dei parametri tra le schermate in modo coerente con il 
 è stata utilizzata la libreria \textbf{Retrofit}, il quale permette di trasformare le API HTTP in interfaccia Kotlin, automatizzando la gestione delle richieste e delle risposte, 
 inoltre permette la conversione automatica dei dati JSON provenienti dal database in oggetti scritti in lunguaggio Kotlin
 \subsection{API Service}
+Per la visualizzazine della mappa sull'applicazione è stata utilizzata la libreria di \textbf{MapLibre}, un potente motore di rendering per visualizzare mappe vettoriali interattive.
+MapLibre nasce da Mapbox GL, divenuto closed a partire dal 2020.
+\newline
+Alla base di MapLibre c'è uno stile, ovvero un file JSON definisce quali informazini mostrare e come disegnarle.
+Lo stile puo essere modificato a proprio piacimento o può essere fornito da terzi, gratuitamente o a pagamento.
+Per questa applicazione il fornitore è open-source ed è \textbf{OpenFreeMap} \footnote{\url{https://tiles.openfreemap.org/styles/bright}}, che recupera le informazini da OpenStreetMap.
+
+Purtroppo OpenFreeMap non fornisce tutte le informazini necessarie al nostro fine.
+Proprietà come \textcolor{green}{\texttt{"wheelchair"}} o \textcolor{green}{\texttt{"toilet:wheelchair"}}, importanti per verificare l'accessibilità di un luogo, non sono fornite, invece attingere direttamente alla Main API di OpenStreetMap risulterebbe troppo lento, a causa della sua natura open, infatti esso permette operazioni CRUD, perfette per la modifica ma con un'infrastruttura poco performante che non supporta query complesse.
+\newline
+Un database di sola lettura, ottimizzato alla ricerca, è \textbf{Overpass API} \footnote[2]{\url{https://wiki.openstreetmap.org/wiki/Overpass_API}}.
+Con un'interrogazione in linguaggio Overpass QL è possibile ottenere una risposta in JSON.
+È possibile testare le proprie query sul portale \url{https://overpass-turbo.eu/}.
+
+Se \textbf{MapLibre} è il motore grafico, attraverso \textbf{OpenFreeMap} e \textbf{OverPass API}, le informazioni da visualizzare sono fornite da \textbf{OpenFreeMap}
+
 \subsection{Tool di sviluppo}
 Per la gestione del controllo versione è stato utilizzato \textbf{Git}, un software utilizzato localmente per gestire le modifiche apportate al progetto. Git supporta operazioni di branching e merging e permette,
  attraverso il commit, di tracciare ogni modifica del file in modo tale da rendere più efficace e rapida l'individuazione di eventuali errori critici.
