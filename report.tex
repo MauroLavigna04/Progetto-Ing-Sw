@@ -321,8 +321,7 @@ La differenza sostanziale è che nel MVC il Controller dice direttamente cosa fa
 Si occupa di renderizzare la grafica, è interamente realizzato con il Framework dichiarativo Jetpack Compose in liguaggio \textbf{kotlin}.
 È presente un'unica attività \texttt{LandingActivity.kt} che gestice le varie schermate, suddivise in schermate di Autenticazione (\texttt{LandingScreen.kt RegisterScreen.kt LoginScreen.kt}) e rendering delle mappe (\texttt{MapView.kt}).
 \newline
-L'oggetto che si occupa di navigare tra le varie schermate è il \texttt{NavController}, esso però non viene passato tra le varie schermate, ma ogni schermata evoca un evento che viene poi gestito dalla schermata principale.
-Ad essere passato tra le varie schermate è il ViewModel, infatti per ogni schermata, nella di una generica cassella di testo abbiamo:
+L'oggetto che si occupa di navigare tra le varie schermate è il \texttt{NavController}, esso però non viene passato tra le varie schermate, ma ogni schermata evoca un evento che viene poi gestito dalla schermata principale. Ad essere passato tra le varie schermate è il ViewModel, infatti per ogni schermata, di una generica cassella di testo abbiamo:
 
 
 \begin{tcolorbox}[colback=gray!20, colframe=gray!0, title=Schermata di autenticazione]
@@ -353,8 +352,7 @@ sealed class UiState {
 \end{verbatim}
 \end{tcolorbox}
 
-Il ViewModel ha il compito di eseguire il lavoro di rete in maniera asincrona, senza bloccare l'interfaccia.
-Inolte ha anche la possibilità di verificare i dati immessi prima ancora di fare una chiamata di rete.
+Il ViewModel ha il compito di eseguire il lavoro di rete in maniera asincrona, senza bloccare l'interfaccia.Inolte ha anche la possibilità di verificare i dati immessi prima ancora di fare una chiamata di rete.
 
 %da verificare ed integrare
 
@@ -365,46 +363,34 @@ Nella stessa classe è stata usata la parola chiave  \texttt{by lazy} (\textbf{i
 
 \section{Teck Stack}
 \subsection{Ambiente di sviluppo}
-L'IDE utilizzato per lo sviluppo è \textbf{Android Studio}, il quale fornisce strumenti per la scrittura del codice, consente il debugging, 
-gestisce il testing delle applicazioni e le dipendenze tramite Grandle, ossia uno strumento di build utilizzato per automatizzare il processo di compilazione del progetto e nel nostro caso lo utilizziamo per gestire l'implementazione di librerie esterne presenti nel progetto.
-Inoltre  la particolarità di android è l'integrazioni di  emulatori e strumenti di analisi che facilitano lo sviluppo e la manutenzione del software anche dal punto vista grafico e visivo, visualizzando in maniera instantanea l'applicativo progettato.
+L'IDE utilizzato per lo sviluppo è \textbf{Android Studio}, il quale fornisce strumenti per la scrittura del codice, consente il debugging,gestisce il testing delle applicazioni e le dipendenze tramite Grandle,
+ossia uno strumento di build utilizzato per automatizzare il processo di compilazione del progetto e nel nostro caso lo utilizziamo per gestire l'implementazione di librerie esterne.
+Inoltre  la particolarità di android è l'integrazioni di emulatori e strumenti di analisi che facilitano lo sviluppo e la manutenzione del software anche dal punto vista grafico e visivo, visualizzando in maniera instantanea l'applicativo progettato.
 \subsection{Linguaggio di Programmazione}
-Il linguaggio utilizzato per la realizzazione della web app è \textbf{Kotlin}.E' un linguaggio moderno e supportato per le applicazioni android.
-E' progetatto per essere interoperabile con Java e supporta la programmazione sia orientata agli oggetti sia a paradigmi funzionali. Inoltre è un 
-liguaggio staticamente tipizzato ed utilizza un vasto insieme di librerie e framework per velocizzare lo sviluppo di applicazioni
+Il linguaggio utilizzato per la realizzazione della web app è \textbf{Kotlin}.E' un linguaggio moderno e supportato per le applicazioni android.E' progetatto per essere interoperabile con Java e supporta la programmazione sia orientata agli oggetti sia a paradigmi funzionali. Inoltre è un liguaggio staticamente tipizzato ed utilizza un vasto insieme di librerie e framework per velocizzare lo sviluppo di applicazioni
 \subsection{Framework e librerie}
-Per lo sviluppo dell'applicazione è stato utilizzato \textbf{Android Jetpack} al fine di garantire un'architettura scalabile e manutenibile.
-L'interfaccia grafica è stata realizzata interamente con \textbf{Jetpack Compose}, il quale permette di descrivere la UI come funzione dello 
-stato corrente,ciò lo fa essere più semplice da utilizzare. Per la gestione dei dati legati alla UI è stato utilizzato \textbf{ViewModel} , 
-il quale garantisce che i dati, nonostante possano subire variazioni, non vengono persi.
-La navigazione tra le diverse schermate dell'applicativo è gestita tramite \textbf{Navigation Compose}, ossia una libreria che permette di 
-controllare il passaggio dei parametri tra le schermate in modo coerente con il pattern di navigazione di Android.Per l'integrazione con il server backend, 
-è stata utilizzata la libreria \textbf{Retrofit}, il quale permette di trasformare le API HTTP in interfaccia Kotlin, automatizzando la gestione delle richieste e delle risposte, 
-inoltre permette la conversione automatica dei dati JSON provenienti dal database in oggetti scritti in lunguaggio Kotlin
+Per lo sviluppo dell'applicazione è stato utilizzato \textbf{Android Jetpack} al fine di garantire un'architettura scalabile e manutenibile.L'interfaccia grafica è stata realizzata interamente con \textbf{Jetpack Compose}, il quale permette di descrivere la UI come funzione dello stato corrente,ciò lo fa essere più semplice da utilizzare. Per la gestione dei dati legati alla UI è stato utilizzato \textbf{ViewModel} , il quale garantisce che i dati, nonostante possano subire variazioni, non vengono persi.La navigazione tra le diverse schermate dell'applicativo è gestita tramite \textbf{Navigation Compose}, ossia una libreria che permette di controllare il passaggio dei parametri tra le schermate in modo coerente con il pattern di navigazione di Android.Per l'integrazione con il server backend, 
+è stata utilizzata la libreria \textbf{Retrofit}, il quale permette di trasformare le API HTTP in interfaccia Kotlin, automatizzando la gestione delle richieste e delle risposte, inoltre permette la conversione automatica dei dati JSON provenienti dal database in oggetti scritti in lunguaggio Kotlin.
 \subsection{API Service}
 Per la visualizzazine della mappa sull'applicazione è stata utilizzata la libreria di \textbf{MapLibre}, un potente motore di rendering per visualizzare mappe vettoriali interattive.
 MapLibre nasce da Mapbox GL, divenuto closed a partire dal 2020.
 \newline
-Alla base di MapLibre c'è uno stile, ovvero un file JSON definisce quali informazini mostrare e come disegnarle.
-Lo stile puo essere modificato a proprio piacimento o può essere fornito da terzi, gratuitamente o a pagamento.
-Per questa applicazione il fornitore è open-source ed è \textbf{OpenFreeMap} \footnote{\url{https://tiles.openfreemap.org/styles/bright}}, che recupera le informazini da OpenStreetMap.
-
+Alla base di MapLibre c'è uno stile, ovvero un file JSON definisce quali informazini mostrare e come disegnarle.Lo stile puo essere modificato a proprio piacimento o può essere fornito da terzi, gratuitamente o a pagamento.Per questa applicazione il fornitore è open-source ed è \textbf{OpenFreeMap} \footnote{\url{https://tiles.openfreemap.org/styles/bright}}, che recupera le informazini da OpenStreetMap.
 Purtroppo OpenFreeMap non fornisce tutte le informazini necessarie al nostro fine.
 Proprietà come \textcolor{green}{\texttt{"wheelchair"}} o \textcolor{green}{\texttt{"toilet:wheelchair"}}, importanti per verificare l'accessibilità di un luogo, non sono fornite, invece attingere direttamente alla Main API di OpenStreetMap risulterebbe troppo lento, a causa della sua natura open, infatti esso permette operazioni CRUD, perfette per la modifica ma con un'infrastruttura poco performante che non supporta query complesse.
 \newline
 Un database di sola lettura, ottimizzato alla ricerca, è \textbf{Overpass API} \footnote[2]{\url{https://wiki.openstreetmap.org/wiki/Overpass_API}}.
-Con un'interrogazione in linguaggio Overpass QL è possibile ottenere una risposta in JSON.
-È possibile testare le proprie query sul portale \url{https://overpass-turbo.eu/}.
-
-Se \textbf{MapLibre} è il motore grafico, attraverso \textbf{OpenFreeMap} e \textbf{OverPass API}, le informazioni da visualizzare sono fornite da \textbf{OpenFreeMap}
-
+Con un'interrogazione in linguaggio Overpass QL è possibile ottenere una risposta in JSON.È possibile testare le proprie query sul portale \url{https://overpass-turbo.eu/}.
+Se \textbf{MapLibre} è il motore grafico, attraverso \textbf{OpenFreeMap} e \textbf{OverPass API}, le informazioni da visualizzare sono fornite da \textbf{OpenFreeMap}.
 \subsection{Tool di sviluppo}
 Per la gestione del controllo versione è stato utilizzato \textbf{Git}, un software utilizzato localmente per gestire le modifiche apportate al progetto. Git supporta operazioni di branching e merging e permette,
- attraverso il commit, di tracciare ogni modifica del file in modo tale da rendere più efficace e rapida l'individuazione di eventuali errori critici.
-Per la gestione remota della repository del progetto è stato utilizzato \textbf{GitHub}, ossia una piattaforma di hosting che consente di condividere il codice online, facilita il tutto attraverso le operazioni di pull request. 
-Inoltre legge e visualizza  un file chiamato ".gitignore" il quale permette a git di evitare il caricamento di file temporanei generati automaticamente da Android Studio.
+attraverso il commit, di tracciare ogni modifica del file in modo tale da rendere più efficace e rapida l'individuazione di eventuali errori critici.
+Per la gestione remota della repository del progetto è stato utilizzato \textbf{GitHub}, ossia una piattaforma di hosting che consente di condividere il codice online, facilita il tutto attraverso le operazioni di pull request.Inoltre legge e visualizza  un file chiamato ".gitignore" il quale permette a git di evitare il caricamento di file temporanei generati automaticamente da Android Studio.
+\newline
 Per la gestione del server è stato utilizzato \textbf{Docker},una tecnologia basata sulla containerizzazione che permette di creare immagini che vengono eseguite in un ambiente isolato così facendo il backend non interferisce con il sistema operativo dell'host.
+\newline
 Attraverso il file "docker-compose.yml", è stato possibile avviare con un unico comando l'intero stack includendo il database relazionale e il web server per la gestione delle chiamate api.L'uso di Docker inoltre assicura la portabilità e semplifica le operazioni di rollback grazie al versionamento delle immagini.
+\newline
 All'interno di questa infrastruttura è stato configurato l'ambiente \textbf{XAMPP}, che funge da middleware per la gestione dei dati. Il database relazione si occupa della memorizzazione delle informazioni,
 mentre la comunicazione tra l'applicazione android e il database è garantita dal serevr Apache, il quale riceve le richieste dalla libreria Retrofit. Queste richieste vengono elaborate in linguaggio PHP e convertono i risultati in formato JSON.
 
