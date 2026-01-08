@@ -303,13 +303,12 @@ Il progetto è stato sviluppato utilizzando un'architettura \textbf{client-serve
 Il lato Client è rappresentato dall'applicazione mobile sviluppata in Kotlin, attraverso la quale l'utente può effettuare la registrazione e il login.
 I dati inseriti dall'utente, vengono inviati al server, che ne gestisce la memorizzazione all'interno di un database.
 Il server si occupa della gestione del database, il quale è stato integrato all'interno di un ambiente Docker per garantire maggiore portabilità.
-Inoltre il server espone un'API, che rappresenta l'interfaccia di comunicazione tra client e backend e consente, a seguito del corretto completamento del processo di login, l'accesso alle funzionalità dell'applicazione,
-inclusa la visualizzazione della mappa fornnita tramite un service esterno.
+Inoltre il server espone un'API, che rappresenta l'interfaccia di comunicazione tra client e backend e consente, a seguito del corretto completamento del processo di login, l'accesso alle funzionalità dell'applicazione, inclusa la visualizzazione della mappa fornita tramite un service esterno.
 
 \subsection{Stile Architetturale lato client}
 
 Vista la necessità di avere un sistema reattivo e interattivo, l'applicazione dovrebbe adottare un pattern \textbf{MVC}, che isola in tre livelli il sistema.
-Il "Model" di occupa di gestire ed elaborare i dati, il "View" si occupa della modalità di visualizzazione dei dati mentre il "Controller" si occupa dell'interazione dell'utente e manda queste informazioni a vista e modello.
+Il "Model" si occupa di gestire ed elaborare i dati, il "View" si occupa della modalità di visualizzazione dei dati mentre il "Controller" si occupa dell'interazione dell'utente e manda queste informazioni a vista e modello.
 \newline
 Dato che questo tipo di pattern potrebbe richiedere, specialmente nello sviluppo di applicativi mobili, grossi file che fungono sia da view che da controller,
 si potrebbe optare per un pattern di tipo \textbf{MVVM} (Model-View-ViewModel). In questo tipo di modello abbiamo il ruolo del ViewModel che non conosce la View, semplicemente espone le informazioni, 
