@@ -458,9 +458,16 @@ Rispetto all'idea progettuale iniziale, nella versione finale non sono state imp
 
 \subsection{Validazione del prototipo}
 Per la validazione lato server del prototipo, sono stati eseguiti test manuali per verificare il corretto funzionamento delle API esposte dal backend. Questi test hanno incluso la verifica delle operazioni di registrazione e login degli utenti.
-Inoltre con lo strumento open source Grafana K6 sono stati eseguiti test di carico sul server per valutare le prestazioni e la scalabilità del sistema.
+Inoltre con lo strumento open source \textbf{Grafana K6} \footnote{\url{https://k6.io/}} sono stati eseguiti test di carico sul server per valutare le prestazioni e la scalabilità del sistema.
 Grafana K6 permette di simulare un numero elevato di richieste simultanee al server con l'utilizzo di uno script in linguaggio JavaScript.
-Ecco una simulazione 
+Ecco una simulazione nell'immagine \ref{fig:simuazioneK6} eseguita con un carico di 20 utenti con 1 richiesta di login al secondo per utente:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{Materiale Multimediale/Foto/test_di_validazione_k6.png}
+    \hspace{0.05\textwidth}
+    \caption{Test di validazione con Grafana k6. Il server ha gestito con successo tutte le richieste senza errori, con un tempo medio di risposta di 61.03 ms.}
+    \label{fig:simuazioneK6}
+\end{figure}
 
 %Inizio bibliografia
 
