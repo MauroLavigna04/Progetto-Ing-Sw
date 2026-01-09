@@ -30,6 +30,7 @@ services:
     volumes: 
       # Mappa la tua cartella htdocs locale dentro il container
       - ./backend:/var/www/html
+
   
 
   # 3. PHPMYADMIN
