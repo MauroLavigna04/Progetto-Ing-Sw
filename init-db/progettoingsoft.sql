@@ -31,8 +31,9 @@ CREATE TABLE `utente` (
   `cognome` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `telefono` int(10) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `idUtente` int(11) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `idUtente` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+  PRIMARY KEY (`idUtente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,8 +43,6 @@ CREATE TABLE `utente` (
 --
 -- Indexes for table `utente`
 --
-ALTER TABLE `utente`
-  ADD PRIMARY KEY (`idUtente`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -52,8 +51,7 @@ ALTER TABLE `utente`
 --
 -- AUTO_INCREMENT for table `utente`
 --
-ALTER TABLE `utente`
-  MODIFY `idUtente` int(11) NOT NULL AUTO_INCREMENT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
