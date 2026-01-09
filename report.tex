@@ -417,56 +417,63 @@ All'interno di questa infrastruttura è stato configurato l'ambiente \textbf{XAM
 mentre la comunicazione tra l'applicazione android e il database è garantita dal serevr Apache, il quale riceve le richieste dalla libreria Retrofit. Queste richieste vengono elaborate in linguaggio PHP e convertono i risultati in formato JSON.
 
 \section{Prototipo}
-L'idea progettuale iniziale prevedeva la realizzazione di un'applicazione in grado di offrire all'utente sia la possibilità di registrarsi e creare un account personale,con successivo accesso tramite autenticazione, sia la possibilità di utilizzare l'applicazione senza la necessità di registrarsi. Una volta effettuato l'accesso, l'utente avrebbe dovuto visualizzare una mappa fornita da un'API esterna, all'interno della quale erano rappresentati diversi luoghi.
+L'idea progettuale iniziale prevedeva la realizzazione di un'applicazione in grado di offrire all'utente sia la possibilità di registrarsi e creare un account personale, con successivo accesso tramite autenticazione, sia la possibilità di utilizzare l'applicazione senza la necessità di registrarsi. Una volta effettuato l'accesso, l'utente avrebbe dovuto visualizzare una mappa fornita da un'API esterna, all'interno della quale erano rappresentati diversi luoghi.
 \newline
 Per ciascun luogo era prevista l'indicazione del livello di accessibilità per persone con mobilità ridotta, oltre alla presenza di recensioni associate e al calcolo del percorso ottimale per raggiungerlo. Il progetto nella sua versione finale mantiene la possibilità di accesso sia tramite registrazione e login sia senza autenticazione. a seguito dell'accesso all'applicazione, viene visualizzata una mappa contenente i luoghi di interesse.
 \newline
-Rispetto all'idea progettuale iniziale, la versione finale dell'applicazione introduce un elemento migliorativo non precedentemente previsto, rappresentato dall'utilizzo di indicatori grafici di colore differente per identificare i luoghi sulla mappa in base al loro livello di accessibilità. Tale soluzione consente una comprensione immediata e intuitiva delle informazioni, migliorando l'esperienza utente e l'usabilità complessiva dell'applicazione. L'impiego di una codifica cromatica(verde,giallo,rosso e grigio) costituisce pertanto un'implementazione aggiuntiva rispetto alla concezione progettuale originaria, arricchendo la rappresentazione visiva dei dati senza alterare le funzionalità di base previste. In particolare, il colore verde indica luoghi completamente accessibili alle persone con mobilità ridotta, il giallo segnala una parziale accessibilità, il rosso identifica luoghi non accessibili, mentre il grigio indica l'assenza di informazioni relative all'accessibilità.
+Rispetto all'idea progettuale iniziale, la versione finale dell'applicazione introduce un elemento migliorativo non precedentemente previsto, rappresentato dall'utilizzo di indicatori grafici di colore differente \ref{fig:mappa colorata} per identificare i luoghi sulla mappa in base al loro livello di accessibilità. Tale soluzione consente una comprensione immediata e intuitiva delle informazioni, migliorando l'esperienza utente e l'usabilità complessiva dell'applicazione. L'impiego di una codifica cromatica(verde,giallo,rosso e grigio) costituisce pertanto un'implementazione aggiuntiva rispetto alla concezione progettuale originaria, arricchendo la rappresentazione visiva dei dati senza alterare le funzionalità di base previste. In particolare, il colore verde indica luoghi completamente accessibili alle persone con mobilità ridotta, il giallo segnala una parziale accessibilità, il rosso identifica luoghi non accessibili, mentre il grigio indica l'assenza di informazioni relative all'accessibilità.
 \newline
 Rispetto all'idea progettuale iniziale, nella versione finale non sono state implementate le funzionalità relative alla gestione delle recensioni né il calcolo del percorso ottimale per raggiungere i luoghi selezionati.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{schermataInii.jpeg}%
-    \hspace{0.05\textwidth}
-    \caption{Schermata iniziale}
-    \label{fig:immaginii}
+    \begin{minipage}[t]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{schermataInii.jpeg}
+        \caption{Schermata iniziale}
+        \label{fig:langing screen}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{login.jpeg}
+        \caption{Schermata per effettuare il login}
+        \label{fig:log in screen}
+    \end{minipage}
+%\end{figure}
+%\begin{figure}[h]
+    \hfill
+    \begin{minipage}[t]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{registrazione.jpeg}
+        \caption{Schermata di registrazione}
+        \label{fig:sign in screen}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.2\textwidth}
+        \includegraphics[width=\textwidth]{menu.jpeg}
+        \caption{menu laterale utente}
+        \label{fig:side menu}
+    \end{minipage}
 \end{figure}
+
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{login.jpeg}%
-    \hspace{0.05\textwidth}
-    \caption{Schermata per effettuare il login}
-    \label{fig:immaginii}
+   \begin{minipage}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{tutti.jpeg}
+         \caption{Schermata visualizzata una volta aver effettuato l'accesso all'applicazione}
+        \label{fig:mappa colorata}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{verde.jpeg}
+        \caption{Informazione in merito ad un luogo scelto nel caso in cui sia accessibile a tutti}
+        \label{fig:luogo accessibile}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{rosso.jpeg}
+        \caption{Informazione in merito ad un luogo scelto nel caso in cui non sia accessibile a tutti}
+        \label{fig:luogo non accessibile}
+    \end{minipage}
 \end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{registrazione.jpeg}%
-    \hspace{0.05\textwidth}
-    \caption{Schermata per poter effettuare la registrazione}
-    \label{fig:immaginii}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{tutti.jpeg}%
-    \hspace{0.05\textwidth}
-    \caption{Schermata visualizzata una volta aver effettuato l'accesso all'applicazione}
-    \label{fig:immaginii}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{verde.jpeg}%
-    \hspace{0.05\textwidth}
-    \caption{Informazione in merito ad un luogo scelto nel caso in cui sia accessibile a tutti}
-    \label{fig:immaginii}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{rosso.jpeg}%
-    \hspace{0.05\textwidth}
-    \caption{Informazione in merito ad un luogo scelto nel caso in cui non sia accessibile a tutti}
-    \label{fig:immaginii}
-\end{figure}
+
+\clearpage
 
 \subsection{Validazione del prototipo}
 Per la validazione lato server del prototipo, sono stati eseguiti test manuali per verificare il corretto funzionamento delle API esposte dal backend. Questi test hanno incluso la verifica delle operazioni di registrazione e login degli utenti.
