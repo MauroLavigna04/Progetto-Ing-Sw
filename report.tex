@@ -171,7 +171,7 @@ i vari parametri che stabiliscono se un servizio igienico è accessibile in sedi
 
 \section{Screen Reader}
 
-Per screen reader si intende un software che permette di convertire il testo, o più generalemente il contenuto, visualizzato su uno schermo in un output audio. Questo risulta essere particolarmente utile per persone affette da impedimenti visivi che non
+Per screen reader si intende un software che permette di convertire il testo, o più generalmente il contenuto, visualizzato su uno schermo in un output audio. Questo risulta essere particolarmente utile per persone affette da impedimenti visivi che non
 hanno la possibilità di leggere in autonomia il contenuto del dispositivo. Tuttavia, questa tecnologia presenta alcune limitazioni; le informazioni che vengono erogate sono all'incirca il 61.48\% 
 meno accurate e si spende il 210.96\% in più per interagirvi rispetto a utenti che non utilizzano screen reader\cite{art_5}. Molti degli attuali sistemi operativi per dispositivi mobili presentano degli screen reader
 integrati, come ad esempio VoiceOver per dispositivi Apple e TalkBack per dispositivi Android.
@@ -296,7 +296,7 @@ in particolare quanto sarà necessario investire per mantenere l'applicazione ac
 
 \subsection{Gli store di applicazioni}
 
-Gli store di applicazioni rappresentano una piattaforma digitale in cui vengono resi disponibili applicativi, dove questi utlimi possono avere un determinato costo oppure possono essere
+Gli store di applicazioni rappresentano una piattaforma digitale in cui vengono resi disponibili applicativi, dove questi ultimi possono avere un determinato costo oppure possono essere
 gratuiti.
 Gli store di applicazioni presenti nei vari dispositivi mobili, costituiscono una parte fondamentale della soluzione proposta in quanto, a nostro avviso, il migliore utilizzo dell'applicazione 
 si avrà proprio quando l'utente si interfaccerà con dispositivi che potrà utilizzare dal vivo. Per cui, risulta necessario introdurre i principali store di applicazioni su cui la soluzione proposta
@@ -340,8 +340,6 @@ Sono previsti tre diversi piani tariffari:
 E' utile menzionare il fatto che Google Maps Platform offre un credito pari a 300 dollari per i nuovi utenti che desiderano utilizzare il servizio;
 questa opzione risulta particolarmente interessante in quanto permetterebbe di verificare e valutare di prima mano se l'utilizzo di Google Maps Platform
 ricopre le esigenze del progetto proposto.
-
-
 
 
 \section{Architettura}
@@ -405,15 +403,15 @@ Il ViewModel ha il compito di eseguire il lavoro di rete in maniera asincrona, s
 \subsubsection{Model}
 Sempre nel modulo \texttt{UtenteViewModel.kt} possiamo individuare la classe \texttt{NetworkClient} che viene creata con la parola chiave \texttt{object} proprio perché è di tipo \textbf{Singleton}, ovvero la creazione di una sola istanza di questa classe nell'intera app.
 \newline
-Nella stessa classe è stata usata la parola chiave  \texttt{by lazy} (\textbf{inizzializzazione pigra}) poiché questo comando permette di creare l'istanza di Retrofit non all'avvio dell'app ma quando si verifica la prima chiamata di rete
+Nella stessa classe è stata usata la parola chiave  \texttt{by lazy} (\textbf{inizzializzazione pigra}) poiché questo comando permette di creare l'istanza di Retrofit non all'avvio dell'app ma quando si verifica la prima chiamata di rete.
 
 \section{Tech Stack}
 \subsection{Ambiente di sviluppo}
 L'IDE utilizzato per lo sviluppo è \textbf{Android Studio}, il quale fornisce strumenti per la scrittura del codice, consente il debugging,gestisce il testing delle applicazioni e le dipendenze tramite Grandle,
-ossia uno strumento di build utilizzato per automatizzare il processo di compilazione del progetto e nel nostro caso lo utilizziamo per gestire l'implementazione di librerie esterne.
+ossia uno strumento di build utilizzato per automatizzare il processo di compilazione del progetto. Noi lo utilizziamo per gestire l'implementazione di librerie esterne.
 Inoltre  la particolarità di android è l'integrazioni di emulatori e strumenti di analisi che facilitano lo sviluppo e la manutenzione del software anche dal punto vista grafico e visivo, visualizzando in maniera instantanea l'applicativo progettato.
 \subsection{Linguaggio di Programmazione}
-Il linguaggio utilizzato per la realizzazione della web app è \textbf{Kotlin}.E' un linguaggio moderno e supportato per le applicazioni android.E' progetatto per essere interoperabile con Java e supporta la programmazione sia orientata agli oggetti sia a paradigmi funzionali. Inoltre è un liguaggio staticamente tipizzato ed utilizza un vasto insieme di librerie e framework per velocizzare lo sviluppo di applicazioni
+Il linguaggio utilizzato per la realizzazione della web app è \textbf{Kotlin}.E' un linguaggio moderno e supportato per le applicazioni android.E' progetatto per essere interoperabile con Java e supporta la programmazione sia orientata agli oggetti sia a paradigmi funzionali. Inoltre è un liguaggio staticamente tipizzato ed utilizza un vasto insieme di librerie e framework per velocizzare lo sviluppo di applicazioni.
 \subsection{Framework e librerie}
 Per lo sviluppo dell'applicazione è stato utilizzato \textbf{Android Jetpack} al fine di garantire un'architettura scalabile e manutenibile.L'interfaccia grafica è stata realizzata interamente con \textbf{Jetpack Compose}, il quale permette di descrivere la UI come funzione dello stato corrente,ciò lo fa essere più semplice da utilizzare. Per la gestione dei dati legati alla UI è stato utilizzato \textbf{ViewModel} , il quale garantisce che i dati, nonostante possano subire variazioni, non vengono persi.La navigazione tra le diverse schermate dell'applicativo è gestita tramite \textbf{Navigation Compose}, ossia una libreria che permette di controllare il passaggio dei parametri tra le schermate in modo coerente con il pattern di navigazione di Android.Per l'integrazione con il server backend, 
 è stata utilizzata la libreria \textbf{Retrofit}, il quale permette di trasformare le API HTTP in interfaccia Kotlin, automatizzando la gestione delle richieste e delle risposte, inoltre permette la conversione automatica dei dati JSON provenienti dal database in oggetti scritti in lunguaggio Kotlin.
