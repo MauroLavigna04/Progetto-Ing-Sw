@@ -407,7 +407,7 @@ Sempre nel modulo \texttt{UtenteViewModel.kt} possiamo individuare la classe \te
 \newline
 Nella stessa classe è stata usata la parola chiave  \texttt{by lazy} (\textbf{inizzializzazione pigra}) poiché questo comando permette di creare l'istanza di Retrofit non all'avvio dell'app ma quando si verifica la prima chiamata di rete
 
-\section{Teck Stack}
+\section{Tech Stack}
 \subsection{Ambiente di sviluppo}
 L'IDE utilizzato per lo sviluppo è \textbf{Android Studio}, il quale fornisce strumenti per la scrittura del codice, consente il debugging,gestisce il testing delle applicazioni e le dipendenze tramite Grandle,
 ossia uno strumento di build utilizzato per automatizzare il processo di compilazione del progetto e nel nostro caso lo utilizziamo per gestire l'implementazione di librerie esterne.
@@ -529,7 +529,13 @@ Potrebbe risultare agevole includere un sito web che offra la possibilità di es
 Al momento della stesura del seguente report, si pensa che con la versione web comunque si potrà interagire con la mappa e i vari luoghi di interesse,
 tuttavia sarà consigliato la versione per dispositivi mobili in quanto la nostra visione di progetto, come detto in precedenza, è sempre stata finalizzata ai dispositivi mobili.
 L'aggiunta di un sito web renderà la trattazione sulla stima dei costi effettuata obsoleta, in quanto andrebbero inclusi i costi come quelli relativi al dominio oppure al certificato SSL.
-
+\section{Calcolo del percorso ottimale}
+Si pensa che sia necessario implementare una funzionalità che permetta di calcolare il percorso ottimale per raggiungere un luogo di interesse, tenendo conto delle esigenze specifiche
+dell'utente riguardo l'accessibilità, ad esempio per persone in sedia a rotelle bisogna evitare scalinate o terreni accidentati.
+\section{Inserimento delle recensioni}
+Un'altra funzionalità che si ritiene sia necessaria implementare è la possibilità di inserire recensioni per ciascun luogo di interesse, esclusivamente da parte di utenti registrati.
+Questo consentirebbe di ottenere un feedback più accurato e affidabile riguardo all'accessibilità dei luoghi, poichè le recensioni verrebbero monitorate e moderate dal team di sviluppo, 
+assicurandosi che l'utente registrato abbia effettivamente visitato il luogo in questione.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.70\textwidth]{Materiale Multimediale/Foto/costi_annuali_dominio.png}
